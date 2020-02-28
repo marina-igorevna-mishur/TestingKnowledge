@@ -9,7 +9,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-        components: path.resolve(__dirname, 'src', 'js', 'components'),
+      components: path.resolve(__dirname, 'src', 'js', 'components'),
+      services: path.resolve(__dirname, 'src', 'js', 'services'),
         css: path.resolve(__dirname, 'src', 'css')
     }
   },
