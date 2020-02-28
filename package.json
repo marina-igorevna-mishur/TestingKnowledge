@@ -1,0 +1,24 @@
+{
+  "name": "testingknowledge",
+  "version": "1.0.0",
+  "description": "Testing my skills",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plantysnake/TestingKnowledge.git"
+  },
+  "keywords": [
+    "npm",
+    "js",
+    "react"
+  ],
+  "author": "i.strelnikov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/plantysnake/TestingKnowledge/issues"
+  },
+  "homepage": "https://github.com/plantysnake/TestingKnowledge#readme"
+}
