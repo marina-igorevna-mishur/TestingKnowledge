@@ -4,7 +4,7 @@
   "description": "Testing my skills",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack --mode development",
     "start:local": "webpack-dev-server --port 3000 --host localhost --open"
   },
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/plantysnake/TestingKnowledge#readme",
   "dependencies": {
     "css-loader": "^3.4.2",
+    "jest": "^25.1.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "style-loader": "^1.1.3",
