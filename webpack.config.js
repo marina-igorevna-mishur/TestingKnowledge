@@ -7,6 +7,12 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  resolve: {
+    alias: {
+        components: path.resolve(__dirname, 'src', 'js', 'components'),
+        css: path.resolve(__dirname, 'src', 'css')
+    }
+  },
   module: {
     rules: [
       {
