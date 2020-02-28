@@ -25,7 +25,8 @@
   "homepage": "https://github.com/plantysnake/TestingKnowledge#readme",
   "dependencies": {
     "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "react-dom": "^16.13.0",
+    "sinon": "^9.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
@@ -40,6 +41,7 @@
     "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.1.0",
+    "simon": "^0.2.3",
     "style-loader": "^1.1.3",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
