@@ -10,9 +10,15 @@ Enzyme.configure({ adapter: new Adapter() })
 
 describe('App component', () => {
     it('gets right string', () => {
-      sinon.stub(AppService, 'getData').returns('Hello World?');
       const wrapper = shallow(<App />);
       const text = wrapper.find('div').text();
       expect(text).toEqual('Hello World?');
+    });
+
+    it('gets not string', () => {
+      sinon.stub(AppService, 'getData').returns('What?');
+      const wrapper = shallow(<App />);
+      const text = wrapper.find('div').text();
+      expect(text).toEqual('What?');
     });
   });
