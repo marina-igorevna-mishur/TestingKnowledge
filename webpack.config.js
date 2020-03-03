@@ -9,7 +9,6 @@ module.exports = {
   },
   resolve: {
     alias: {
-      ...options.alias,
       components: path.resolve(__dirname, 'src', 'js', 'components'),
       services: path.resolve(__dirname, 'src', 'js', 'services'),
         css: path.resolve(__dirname, 'src', 'css')
