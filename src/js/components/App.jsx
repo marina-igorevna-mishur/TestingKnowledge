@@ -4,10 +4,8 @@ import '../../css/style.css';
 
 class App extends React.Component {
     render() {
-    const element = <div className="hello">{ getData() }</div>;
-        return(
-            element
-        );
+		const element = <div className="hello">{ getData() }</div>;
+		return element;
     }
 }
 
