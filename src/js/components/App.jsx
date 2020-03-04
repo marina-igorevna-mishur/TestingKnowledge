@@ -1,41 +1,59 @@
 import React from "react"
-import { getData, filter } from "services/AppService.jsx"
+import { getData } from "services/AppService.jsx"
 import PropTypes from "prop-types"
 import "../../css/style.css"
 
 class App extends React.Component {
+	constructor(props) {
+		super(props)
+
+		this.state = {
+			head: [],
+			trials: []
+		}
+		this.getTable()
+	}
 
 	getTable = () => {
-		var info = getData()
-		var data = JSON.parse(info)
-		var table = data.map(function (element) {
+		getData().then(function (info) {
+			var data = JSON.parse(info)
+			this.setState({
+				head: data.headers,
+				trials: data.trials
+			})
+		})
+	}
+
+	composeTableHead = () => {
+		var table = this.state.head.map(function (element) {
+			return <th key={element}>{element}</th>
+		})
+		return table
+	}
+
+	composeTable = () => {
+		var table = this.state.trials.map(function (element) {
 			return <Table trId={element.id} key={element.id} title={element.title} disease={element.disease} phase={element.phase} />
 		})
 		return table
 	}
 
-	getTableHead = () => {
-		var info = filter()
-		var data = JSON.parse(info)
-		var head = data.map(function (element) {
-			return <th key={element}>{element}</th>
-		})
-		return head
-	}
-
 	render() {
-		return (
+		
+		return(
 			<div className = "table">
 				<table style={style.table}>
 					<thead>
-						{this.getTableHead()}
+						{this.composeTableHead()}
 					</thead>
 					<tbody>
-						{this.getTable()}
+						{this.composeTable()}
 					</tbody>
 				</table>
 			</div>
-		)}
+		)
+	}
+
 }
 
 class Table extends React.Component {
@@ -69,7 +87,7 @@ var style = {
 	tableContent: {
 		border: "1px solid black",
 		textAlign: "center"
-    }
+	}
 }
 
 export default App
