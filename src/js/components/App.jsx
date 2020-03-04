@@ -6,32 +6,41 @@ import "../../css/style.css"
 class App extends React.Component {
 	constructor(props) {
 		super(props)
-
 		this.state = {
 			head: [],
 			trials: []
 		}
+	}
+
+	componentDidMount() {
 		this.getTable()
 	}
 
-	getTable = () => {
-		getData().then(function (info) {
-			var data = JSON.parse(info)
-			this.setState({
-				head: data.headers,
-				trials: data.trials
-			})
+
+	setTrialsState = (info) => {
+		var data = JSON.parse(info.toString())
+		console.log(data)
+		this.setState({
+			head: data.headers,
+			trials: data.trials
 		})
 	}
 
+	getTable = () => {
+		console.log("uno")
+		getData().then(this.setTrialsState)
+	}
+
 	composeTableHead = () => {
+		console.log("head")
 		var table = this.state.head.map(function (element) {
-			return <th key={element}>{element}</th>
+			return <td key={element} >{element}</td>
 		})
 		return table
 	}
 
 	composeTable = () => {
+		console.log("table")
 		var table = this.state.trials.map(function (element) {
 			return <Table trId={element.id} key={element.id} title={element.title} disease={element.disease} phase={element.phase} />
 		})
@@ -44,7 +53,9 @@ class App extends React.Component {
 			<div className = "table">
 				<table style={style.table}>
 					<thead>
-						{this.composeTableHead()}
+						<tr style={style.tableContent}>
+							{this.composeTableHead()}
+						</tr>
 					</thead>
 					<tbody>
 						{this.composeTable()}
