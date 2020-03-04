@@ -1,7 +1,5 @@
 function getData() {
-    return "Hello World?"
+	return "Hello World?"
 }
 
-module.exports = {
-    getData
-};
+export default { getData }
