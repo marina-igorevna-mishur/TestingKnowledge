@@ -11,16 +11,16 @@ class App extends React.Component {
 			head: [],
 			trials: []
 		}
-		this.getTable()
 	}
 
-	getTable = () => {
-		getData().then(function (info) {
-			var data = JSON.parse(info)
-			this.setState({
-				head: data.headers,
-				trials: data.trials
-			})
+	componentDidMount() {
+		getData().then(this.updateTable)
+	}
+
+	updateTable = data => {
+		this.setState({
+			head: data.headers,
+			trials: data.trials
 		})
 	}
 
@@ -39,9 +39,9 @@ class App extends React.Component {
 	}
 
 	render() {
-		
-		return(
-			<div className = "table">
+
+		return (
+			<div className="table">
 				<table style={style.table}>
 					<thead>
 						{this.composeTableHead()}
